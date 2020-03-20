@@ -655,34 +655,7 @@ void runAsProcess(void)
 // Переключение раскладки
 void switchLayout(int n)
 {
- // Если нужно циклическое переключение раскладок
- if(config.getSwitchMethod()==CONFIG_SWITCH_METHOD_CYCLIC)
-  {
-   int number=keyLayout.getLayout();
-
-   number++;
-
-   if(number>=keyLayout.getLayoutNumber())
-    number=0;
-
-   keyLayout.setLayout(number);
-   executeCommand(number);
-
-   return;
-  }
-
- // Если нужно прямое переключение раскладок
- if(config.getSwitchMethod()==CONFIG_SWITCH_METHOD_DIRECT)
-  {
-   int number=keyLayout.getLayout();
-
-   if(number!=n)
-    {
-     keyLayout.setLayout(n);
-     executeCommand(n);
-    }
-  }
-
+   executeCommand(n);
 }
 
 
